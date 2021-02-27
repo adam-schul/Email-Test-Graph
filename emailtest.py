@@ -39,15 +39,6 @@ herd_avg = sum(herd) / len(herd)
 n_grades = int(len(grade))
 index = np.arange(n_grades)
 
-# Edit the fonts to be used later
-csfont = {'fontname': 'Orator Std', 'weight': 'heavy', 'size': 22, 'backgroundcolor': Highlight_color}
-psfont = {'fontname': 'Orator Std', 'size': 14}
-
-
-width = 0.2
-opacity = 0.7
-fruit = 0
-
 # Change colors
 Herd_color = 'green'
 Control_color = 'yellow'
@@ -57,6 +48,14 @@ Incentive_color = 'red'
 Highlight_color = 'yellow'
 Background = '#a4ede4'
 
+# Edit the fonts to be used later
+csfont = {'fontname': 'Orator Std', 'weight': 'heavy', 'size': 22, 'backgroundcolor': Highlight_color}
+psfont = {'fontname': 'Orator Std', 'size': 14}
+
+# Width of bars
+width = 0.2
+opacity = 0.7
+fruit = 0
 
 # Set size of figure and color of background
 fig = plt.figure(figsize=(12, 8), facecolor=Background)
