@@ -11,15 +11,10 @@ ego = []
 incentive = []
 herd = []
 
-
-# Blah blah blahhhhh
-
 # Read the data from the csv file and put it into a variable called "data"
 with open('emailtest.csv', newline='') as f:
     reader = csv.reader(f)
     data = list(reader)
-
-print(data)
 
 # Sort the data into the more specific lists
 for i in range(len(data)):
@@ -58,43 +53,47 @@ psfont = {'fontname': 'Orator Std', 'size': 14}
 # Width of bars
 width = 0.2
 opacity = 0.7
-fruit = 0
+fruit = index
 
 # Set size of figure and color of background
 fig = plt.figure(figsize=(12, 8), facecolor=Background)
 
+wego = 0
+wcontrol = 0
+wincentive = 0
+wherd = 0
+
 # Order the bars from tallest to shortest based on the averages calculated earlier
 for i in range(n_grades):
     if incentive_avg > herd_avg and incentive_avg > ego_avg and incentive_avg > control_avg:
-        pincentive = plt.bar(index + fruit, incentive, width, color=Incentive_color, alpha=opacity,
-                             edgecolor='navy', label='Incentive')
-
-        fruit = fruit + width
+        wincentive = fruit
         incentive_avg = 0
+        fruit = fruit + width
 
     elif herd_avg > incentive_avg and herd_avg > ego_avg and herd_avg > control_avg:
-        pherd = plt.bar(index + fruit, herd, width, color=Herd_color,
-                        alpha=opacity, edgecolor='navy', label='Herd')
-
+        wherd = fruit
         herd_avg = 0
         fruit = fruit + width
 
     elif ego_avg > incentive_avg and ego_avg > herd_avg and ego_avg > control_avg:
-        pego = plt.bar(index + fruit, ego, width, color=Ego_color,
-                       alpha=opacity, edgecolor='navy', label='Ego')
-
+        wego = fruit
         ego_avg = 0
         fruit = fruit + width
 
     elif control_avg > incentive_avg and control_avg > herd_avg and control_avg > ego_avg:
-        pcontrol = plt.bar(index + fruit, control, width, color=Control_color, alpha=opacity,
-                           edgecolor='navy', label='Control')
-
+        wcontrol = fruit
         control_avg = 0
         fruit = fruit + width
 
     else:
         pass
+
+# Create the bars of the graph
+pcontrol = plt.bar(wcontrol, control, width, color=Control_color, alpha=opacity, edgecolor='navy', label='Control')
+pego = plt.bar(wego, ego, width, color=Ego_color, alpha=opacity, edgecolor='navy', label='Ego')
+pincentive = plt.bar(wincentive, incentive, width, color=Incentive_color, alpha=opacity, edgecolor='navy',
+                     label='Incentive')
+pherd = plt.bar(wherd, herd, width, color=Herd_color, alpha=opacity, edgecolor='navy', label='Herd')
 
 # Put final details onto the graph
 plt.xlabel("Grade", **csfont)
