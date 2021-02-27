@@ -11,6 +11,10 @@ ego = []
 incentive = []
 herd = []
 
+
+# Blah blah blahhhhh
+
+
 # Read the data from the csv file and put it into a variable called "data"
 with open('emailtest.csv', newline='') as f:
     reader = csv.reader(f)
