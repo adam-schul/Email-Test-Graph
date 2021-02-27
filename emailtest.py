@@ -14,7 +14,6 @@ herd = []
 
 # Blah blah blahhhhh
 
-
 # Read the data from the csv file and put it into a variable called "data"
 with open('emailtest.csv', newline='') as f:
     reader = csv.reader(f)
@@ -98,8 +97,8 @@ for i in range(n_grades):
         pass
 
 # Put final details onto the graph
-plt.xlabel("Treatment", **csfont)
-plt.ylabel("Survey Completion Rate", **csfont)
+plt.xlabel("Grade", **csfont)
+plt.ylabel("Response Rate (%)", **csfont)
 plt.xticks(index + width + (width / 2), grade, **psfont)
 plt.title("Effect of Different Subject Lines on Responsiveness", **csfont)
 plt.legend()
